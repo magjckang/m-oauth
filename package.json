@@ -1,0 +1,13 @@
+{
+  "name": "m-oauth",
+  "version": "0.1.0",
+  "description": "Minimal oauth lib",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/magjckang/m-oauth.git"
+  },
+  "dependencies": {
+    "superagent": "^0.21.0"
+  },
+  "license": "MIT"
+}
