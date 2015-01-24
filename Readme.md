@@ -1,6 +1,6 @@
 # m-oauth
 
-  Minimal oauth lib for nodejs, framework agnostic.
+  Minimal oauth2 lib for nodejs, framework agnostic.
 
 ## Installation
 
