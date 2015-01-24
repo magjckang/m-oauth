@@ -1,0 +1,102 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish', '.' ]
+2 info using npm@2.0.0
+3 info using node@v0.11.14
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add spec="." args=[".",null]
+7 verbose parsed spec { raw: '.',
+7 verbose parsed spec   scope: null,
+7 verbose parsed spec   name: null,
+7 verbose parsed spec   rawSpec: '.',
+7 verbose parsed spec   spec: '/Users/magjckang/repos/m-oauth',
+7 verbose parsed spec   type: 'local' }
+8 verbose cache add local package /Users/magjckang/repos/m-oauth
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /Users/magjckang/.npm/3a52ce78-.lock
+11 verbose tar pack [ '/Users/magjckang/.npm/m-oauth/0.1.0/package.tgz', '.' ]
+12 verbose tarball /Users/magjckang/.npm/m-oauth/0.1.0/package.tgz
+13 verbose folder .
+14 info prepublish m-oauth@0.1.0
+15 silly lockFile 1f1177db-tar tar://.
+16 verbose lock tar://. /Users/magjckang/.npm/1f1177db-tar.lock
+17 silly lockFile 6289bb4d-ng-npm-m-oauth-0-1-0-package-tgz tar:///Users/magjckang/.npm/m-oauth/0.1.0/package.tgz
+18 verbose lock tar:///Users/magjckang/.npm/m-oauth/0.1.0/package.tgz /Users/magjckang/.npm/6289bb4d-ng-npm-m-oauth-0-1-0-package-tgz.lock
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile 6289bb4d-ng-npm-m-oauth-0-1-0-package-tgz tar:///Users/magjckang/.npm/m-oauth/0.1.0/package.tgz
+22 silly lockFile 6289bb4d-ng-npm-m-oauth-0-1-0-package-tgz tar:///Users/magjckang/.npm/m-oauth/0.1.0/package.tgz
+23 silly lockFile 7c24cdc7-jckang-npm-m-oauth-0-1-0-package /Users/magjckang/.npm/m-oauth/0.1.0/package
+24 verbose lock /Users/magjckang/.npm/m-oauth/0.1.0/package /Users/magjckang/.npm/7c24cdc7-jckang-npm-m-oauth-0-1-0-package.lock
+25 silly lockFile 7c24cdc7-jckang-npm-m-oauth-0-1-0-package /Users/magjckang/.npm/m-oauth/0.1.0/package
+26 silly lockFile 7c24cdc7-jckang-npm-m-oauth-0-1-0-package /Users/magjckang/.npm/m-oauth/0.1.0/package
+27 silly lockFile 3a52ce78- .
+28 silly lockFile 3a52ce78- .
+29 silly publish { name: 'm-oauth',
+29 silly publish   version: '0.1.0',
+29 silly publish   description: 'Minimal oauth2 lib.',
+29 silly publish   repository: { type: 'git', url: 'git://github.com/magjckang/m-oauth.git' },
+29 silly publish   dependencies: { debug: '^2.1.1', superagent: '^0.21.0' },
+29 silly publish   license: 'MIT',
+29 silly publish   readme: '# m-oauth\n\n  Minimal oauth2 lib for nodejs, framework agnostic.\n\n## Installation\n\n```\n$ npm install m-oauth\n```\n\n  All async api of m-oauth return a promise, make sure you have a native `Promise` implementation.\n  If no implementation is found, an error will be thrown.\n\n  If you are using node < 0.11, you can achieve this by put this:\n\n```js\nif (!global.Promise) global.Promise = require(\'q\').Promise\n```\n\n  before the execution of m-auth.\n\n## Example\n\n```js\nvar Oauth = require(\'m-oauth\')\nvar wellKnown = require(\'m-oauth-wellknown\')\nvar merge = require(\'util\')._extend\n\nvar weibo = Oauth(merge(wellKnown.weibo, {\n  client_id: \'your client id\',\n  client_secret: \'your client secret\',\n  redirect_uri: \'http://yourdomain.com/oauth/weibo/callback\'\n}))\n\napp.get(\'/oauth/weibo\', function (req, res, next) {\n  res.redirect(weibo.getAuthorizeUrl())\n})\n\napp.get(\'/oauth/weibo/callback\', function (req, res, next) {\n  weibo.authorize(req.query.code)\n  .then(function (uid) {\n    return weibo.getProfile(uid)\n  })\n  .then(function (profile) {\n    return User.createOrUpdate(profile)\n  })\n  .then(function (user) {\n    // process some login code\n    res.redirect(\'/\')\n  })\n  .catch(next)\n})\n```\n\n## License\n\n  MIT\n',
+29 silly publish   readmeFilename: 'Readme.md',
+29 silly publish   gitHead: 'c1cab5dbdf61bd8024c6b18ea21fbd979c03cbde',
+29 silly publish   bugs: { url: 'https://github.com/magjckang/m-oauth/issues' },
+29 silly publish   homepage: 'https://github.com/magjckang/m-oauth',
+29 silly publish   _id: 'm-oauth@0.1.0',
+29 silly publish   scripts: {},
+29 silly publish   _shasum: '8ae39f85475e3f1aa4f9d1b1c14792293c1e942d',
+29 silly publish   _from: '.' }
+30 verbose mapToRegistry name m-oauth
+31 verbose mapToRegistry uri http://registry.npmjs.org/m-oauth
+32 verbose publish registryBase http://registry.npmjs.org/
+33 verbose request on initialization, where is /m-oauth
+34 verbose request after pass 1, where is /m-oauth
+35 verbose request url raw /m-oauth
+36 verbose request resolving registry [ 'http://registry.npmjs.org/', './m-oauth' ]
+37 verbose request after pass 2, where is http://registry.npmjs.org/m-oauth
+38 verbose request sending authorization for write operation
+39 info attempt registry request try #1 at 16:45:13
+40 verbose request id b34a0bbcd1ecbea0
+41 http request PUT http://registry.npmjs.org/m-oauth
+42 http 403 http://registry.npmjs.org/m-oauth
+43 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+43 verbose headers   'content-type': 'application/json',
+43 verbose headers   'cache-control': 'max-age=60',
+43 verbose headers   'content-length': '3381',
+43 verbose headers   'accept-ranges': 'bytes',
+43 verbose headers   date: 'Sat, 24 Jan 2015 08:45:14 GMT',
+43 verbose headers   via: '1.1 varnish',
+43 verbose headers   connection: 'close',
+43 verbose headers   'x-served-by': 'cache-ty66-TYO',
+43 verbose headers   'x-cache': 'MISS',
+43 verbose headers   'x-cache-hits': '0',
+43 verbose headers   'x-timer': 'S1422089114.694300,VS0,VE251' }
+44 error publish Failed PUT 403
+45 verbose stack Error: forbidden cannot modify pre-existing version: 0.1.0
+45 verbose stack old={"name":"m-oauth","version":"0.1.0","description":"Minimal oauth lib","repository":{"type":"git","url":"git://github.com/magjckang/m-oauth.git"},"dependencies":{"superagent":"^0.21.0"},"license":"MIT","gitHead":"4e52689b94c789c5c16dbdf0c3eeca82d42ee700","bugs":{"url":"https://github.com/magjckang/m-oauth/issues"},"homepage":"https://github.com/magjckang/m-oauth","_id":"m-oauth@0.1.0","scripts":{},"_shasum":"7148e02cb5d4068589f98ed40647359348ee9aea","_from":".","_npmVersion":"2.0.0","_npmUser":{"name":"magjckang","email":"magjckang@gmail.com"},"maintainers":[{"name":"magjckang","email":"magjckang@gmail.com"}],"dist":{"shasum":"7148e02cb5d4068589f98ed40647359348ee9aea","tarball":"http://registry.npmjs.org/m-oauth/-/m-oauth-0.1.0.tgz"}}
+45 verbose stack new={"name":"m-oauth","version":"0.1.0","description":"Minimal oauth2 lib.","repository":{"type":"git","url":"git://github.com/magjckang/m-oauth.git"},"dependencies":{"debug":"^2.1.1","superagent":"^0.21.0"},"license":"MIT","readme":"# m-oauth\u000a\u000a  Minimal oauth2 lib for nodejs, framework agnostic.\u000a\u000a## Installation\u000a\u000a```\u000a$ npm install m-oauth\u000a```\u000a\u000a  All async api of m-oauth return a promise, make sure you have a native `Promise` implementation.\u000a  If no implementation is found, an error will be thrown.\u000a\u000a  If you are using node < 0.11, you can achieve this by put this:\u000a\u000a```js\u000aif (!global.Promise) global.Promise = require('q').Promise\u000a```\u000a\u000a  before the execution of m-auth.\u000a\u000a## Example\u000a\u000a```js\u000avar Oauth = require('m-oauth')\u000avar wellKnown = require('m-oauth-wellknown')\u000avar merge = require('util')._extend\u000a\u000avar weibo = Oauth(merge(wellKnown.weibo, {\u000a  client_id: 'your client id',\u000a  client_secret: 'your client secret',\u000a  redirect_uri: 'http://yourdomain.com/oauth/weibo/callback'\u000a}))\u000a\u000aapp.get('/oauth/weibo', function (req, res, next) {\u000a  res.redirect(weibo.getAuthorizeUrl())\u000a})\u000a\u000aapp.get('/oauth/weibo/callback', function (req, res, next) {\u000a  weibo.authorize(req.query.code)\u000a  .then(function (uid) {\u000a    return weibo.getProfile(uid)\u000a  })\u000a  .then(function (profile) {\u000a    return User.createOrUpdate(profile)\u000a  })\u000a  .then(function (user) {\u000a    // process some login code\u000a    res.redirect('/')\u000a  })\u000a  .catch(next)\u000a})\u000a```\u000a\u000a## License\u000a\u000a  MIT\u000a","readmeFilename":"Readme.md","gitHead":"c1cab5dbdf61bd8024c6b18ea21fbd979c03cbde","bugs":{"url":"https://github.com/magjckang/m-oauth/issues"},"homepage":"https://github.com/magjckang/m-oauth","_id":"m-oauth@0.1.0","scripts":{},"_shasum":"8ae39f85475e3f1aa4f9d1b1c14792293c1e942d","_from":".","_npmVersion":"2.0.0","_npmUser":{"name":"magjckang","email":"magjckang@gmail.com"},"maintainers":[{"name":"magjckang","email":"magjckang@gmail.com"}],"dist":{"shasum":"8ae39f85475e3f1aa4f9d1b1c14792293c1e942d","tarball":"http://registry.npmjs.org/m-oauth/-/m-oauth-0.1.0.tgz"}}: m-oauth
+45 verbose stack     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:261:14)
+45 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:198:65)
+45 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:236:22)
+45 verbose stack     at Request.emit (events.js:110:17)
+45 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1142:14)
+45 verbose stack     at Request.emit (events.js:129:20)
+45 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1096:12)
+45 verbose stack     at IncomingMessage.emit (events.js:129:20)
+45 verbose stack     at _stream_readable.js:907:16
+45 verbose stack     at process._tickCallback (node.js:372:11)
+46 verbose statusCode 403
+47 verbose pkgid m-oauth
+48 verbose cwd /Users/magjckang/repos/m-oauth
+49 error Darwin 14.0.0
+50 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish" "."
+51 error node v0.11.14
+52 error npm  v2.0.0
+53 error code E403
+54 error forbidden cannot modify pre-existing version: 0.1.0
+54 error old={"name":"m-oauth","version":"0.1.0","description":"Minimal oauth lib","repository":{"type":"git","url":"git://github.com/magjckang/m-oauth.git"},"dependencies":{"superagent":"^0.21.0"},"license":"MIT","gitHead":"4e52689b94c789c5c16dbdf0c3eeca82d42ee700","bugs":{"url":"https://github.com/magjckang/m-oauth/issues"},"homepage":"https://github.com/magjckang/m-oauth","_id":"m-oauth@0.1.0","scripts":{},"_shasum":"7148e02cb5d4068589f98ed40647359348ee9aea","_from":".","_npmVersion":"2.0.0","_npmUser":{"name":"magjckang","email":"magjckang@gmail.com"},"maintainers":[{"name":"magjckang","email":"magjckang@gmail.com"}],"dist":{"shasum":"7148e02cb5d4068589f98ed40647359348ee9aea","tarball":"http://registry.npmjs.org/m-oauth/-/m-oauth-0.1.0.tgz"}}
+54 error new={"name":"m-oauth","version":"0.1.0","description":"Minimal oauth2 lib.","repository":{"type":"git","url":"git://github.com/magjckang/m-oauth.git"},"dependencies":{"debug":"^2.1.1","superagent":"^0.21.0"},"license":"MIT","readme":"# m-oauth\u000a\u000a  Minimal oauth2 lib for nodejs, framework agnostic.\u000a\u000a## Installation\u000a\u000a```\u000a$ npm install m-oauth\u000a```\u000a\u000a  All async api of m-oauth return a promise, make sure you have a native `Promise` implementation.\u000a  If no implementation is found, an error will be thrown.\u000a\u000a  If you are using node < 0.11, you can achieve this by put this:\u000a\u000a```js\u000aif (!global.Promise) global.Promise = require('q').Promise\u000a```\u000a\u000a  before the execution of m-auth.\u000a\u000a## Example\u000a\u000a```js\u000avar Oauth = require('m-oauth')\u000avar wellKnown = require('m-oauth-wellknown')\u000avar merge = require('util')._extend\u000a\u000avar weibo = Oauth(merge(wellKnown.weibo, {\u000a  client_id: 'your client id',\u000a  client_secret: 'your client secret',\u000a  redirect_uri: 'http://yourdomain.com/oauth/weibo/callback'\u000a}))\u000a\u000aapp.get('/oauth/weibo', function (req, res, next) {\u000a  res.redirect(weibo.getAuthorizeUrl())\u000a})\u000a\u000aapp.get('/oauth/weibo/callback', function (req, res, next) {\u000a  weibo.authorize(req.query.code)\u000a  .then(function (uid) {\u000a    return weibo.getProfile(uid)\u000a  })\u000a  .then(function (profile) {\u000a    return User.createOrUpdate(profile)\u000a  })\u000a  .then(function (user) {\u000a    // process some login code\u000a    res.redirect('/')\u000a  })\u000a  .catch(next)\u000a})\u000a```\u000a\u000a## License\u000a\u000a  MIT\u000a","readmeFilename":"Readme.md","gitHead":"c1cab5dbdf61bd8024c6b18ea21fbd979c03cbde","bugs":{"url":"https://github.com/magjckang/m-oauth/issues"},"homepage":"https://github.com/magjckang/m-oauth","_id":"m-oauth@0.1.0","scripts":{},"_shasum":"8ae39f85475e3f1aa4f9d1b1c14792293c1e942d","_from":".","_npmVersion":"2.0.0","_npmUser":{"name":"magjckang","email":"magjckang@gmail.com"},"maintainers":[{"name":"magjckang","email":"magjckang@gmail.com"}],"dist":{"shasum":"8ae39f85475e3f1aa4f9d1b1c14792293c1e942d","tarball":"http://registry.npmjs.org/m-oauth/-/m-oauth-0.1.0.tgz"}}: m-oauth
+55 error If you need help, you may report this error at:
+55 error     <http://github.com/npm/npm/issues>
+56 verbose exit [ 1, true ]

@@ -1,6 +1,6 @@
 {
   "name": "m-oauth",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Minimal oauth2 lib.",
   "repository": {
     "type": "git",
